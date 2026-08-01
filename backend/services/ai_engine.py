@@ -1,21 +1,38 @@
 from services.quran_service import search_quran
+from services.hadith_service import search_hadith
+from services.fiqh_service import search_fiqh
 
 
-def generate_answer(question):
+def ask_abdullah(question):
 
-    results = search_quran(question)
+    quran = search_quran(question)
 
-
-    if results:
-
+    if quran:
         return {
             "source": "Quran",
-            "answer": results
+            "result": quran
+        }
+
+
+    hadith = search_hadith(question)
+
+    if hadith:
+        return {
+            "source": "Hadith",
+            "result": hadith
+        }
+
+
+    fiqh = search_fiqh(question)
+
+    if fiqh:
+        return {
+            "source": "Fiqh",
+            "result": fiqh
         }
 
 
     return {
         "source": "Abdullah AI",
-        "answer":
-        "I could not find a direct source. Please consult qualified scholars for detailed rulings."
+        "result": "I could not find a reliable source yet."
     }

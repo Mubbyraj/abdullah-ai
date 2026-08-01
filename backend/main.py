@@ -1,26 +1,26 @@
 from fastapi import FastAPI
-from services.ai_engine import generate_answer
-
+from services.ai_engine import ask_abdullah
 
 app = FastAPI(
     title="Abdullah AI",
-    description="Islamic AI Assistant",
+    description="Islamic Knowledge Assistant",
     version="1.0"
 )
 
 
 @app.get("/")
 def home():
-
     return {
-        "message":
-        "Assalamu Alaikum. Abdullah AI is running."
+        "message": "Abdullah AI is running"
     }
 
 
 @app.post("/chat")
-def chat(question:str):
+def chat(question: str):
 
-    response = generate_answer(question)
+    answer = ask_abdullah(question)
 
-    return response
+    return {
+        "question": question,
+        "answer": answer
+    }
