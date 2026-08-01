@@ -1,6 +1,7 @@
 from search import search_quran
 
 
-results = search_quran("menstruation")
+result = search_quran("menstruation")
 
-print(results)
+
+print(result)

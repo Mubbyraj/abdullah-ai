@@ -2,7 +2,11 @@ import json
 import os
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.dirname(__file__)
+    )
+)
 
 QURAN_FILE = os.path.join(
     BASE_DIR,
@@ -13,24 +17,19 @@ QURAN_FILE = os.path.join(
 
 def load_quran():
 
-    with open(QURAN_FILE, "r", encoding="utf-8") as file:
+    with open(QURAN_FILE, "r") as file:
         return json.load(file)
 
 
-
-def search_quran(query):
+def search_quran(keyword):
 
     quran = load_quran()
 
     results = []
 
-    query = query.lower()
-
     for verse in quran:
 
-        text = verse.get("text", "").lower()
-
-        if query in text:
+        if keyword.lower() in verse["text"].lower():
             results.append(verse)
 
-    return results[:5]
+    return results
