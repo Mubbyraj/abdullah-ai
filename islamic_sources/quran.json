@@ -1,8 +1,29 @@
 [
-  {
-    "surah": "Al-Baqarah",
-    "ayah": "222",
-    "topic": "menstruation",
-    "text": "They ask you concerning menstruation. Say: It is harm, so keep away from women during menstruation..."
-  }
+    {
+        "topic":"menstruation",
+        "surah":"Al-Baqarah",
+        "ayah":"222",
+        "text":"They ask you concerning menstruation. Say: It is harm, so keep away from women during menstruation..."
+    },
+
+    {
+        "topic":"prayer",
+        "surah":"Al-Baqarah",
+        "ayah":"43",
+        "text":"Establish prayer and give zakah."
+    },
+
+    {
+        "topic":"fasting",
+        "surah":"Al-Baqarah",
+        "ayah":"183",
+        "text":"Fasting has been prescribed for you as it was prescribed for those before you."
+    },
+
+    {
+        "topic":"charity",
+        "surah":"Al-Baqarah",
+        "ayah":"261",
+        "text":"The example of those who spend their wealth..."
+    }
 ]

@@ -1,0 +1,16 @@
+[
+    {
+        "name":"Ibn Kathir",
+        "specialty":"Tafsir"
+    },
+
+    {
+        "name":"Imam Nawawi",
+        "specialty":"Hadith"
+    },
+
+    {
+        "name":"Ibn Taymiyyah",
+        "specialty":"Fiqh"
+    }
+]
