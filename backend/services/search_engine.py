@@ -1,29 +1,23 @@
 from services.knowledge_loader import load_all_sources
+from services.vector_engine import create_vector_index
 
 
-knowledge = load_all_sources()
+documents = load_all_sources()
 
 
-def search_knowledge(query):
-    results = []
+print(f"Documents loaded: {len(documents)}")
 
-    query = query.lower()
 
-    for category, books in knowledge.items():
-        for book in books:
+index, model = create_vector_index(documents)
 
-            entries = book.get("entries", [])
 
-            for item in entries:
-                text = item.get("text", "").lower()
-                topic = item.get("topic", "").lower()
 
-                if query in text or query in topic:
-                    results.append({
-                        "category": category,
-                        "source": book.get("source", "Unknown"),
-                        "reference": item.get("reference", ""),
-                        "text": item.get("text", "")
-                    })
+def search_knowledge(query, top_k=3):
+
+    results = index.search(
+        query,
+        top_k
+    )
+
 
     return results

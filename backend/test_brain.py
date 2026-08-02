@@ -1,4 +1,4 @@
-from services.search_engine import search_knowledge
+from services.response_engine import generate_answer
 
 
 questions = [
@@ -9,13 +9,19 @@ questions = [
 
 
 for question in questions:
-    print("\nQUESTION:")
+
+    print("\n====================")
+    print("QUESTION:")
     print(question)
 
-    results = search_knowledge(question)
 
-    print("\nRESULT:")
-    for item in results:
-        print(item)
+    result = generate_answer(question)
 
-    print("-" * 50)
+
+    print("\nANSWER:")
+    print(result["answer"])
+
+
+    print("\nSOURCES:")
+    for source in result["sources"]:
+        print("-", source)
